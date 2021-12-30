@@ -13,7 +13,7 @@ export class AppComponent {
 
   public title: String = "Meus Objetivos";
   public form: FormGroup;
-
+  public mode: String = 'list';
 
   constructor( private fb: FormBuilder) {
     this.form = this.fb.group({
@@ -35,6 +35,9 @@ export class AppComponent {
    this.load()
   }
 
+  changeMode(mode: String) {
+    this.mode = mode;
+  }
 
   add(){
     const title= this.form.controls['title'].value;
@@ -42,11 +45,13 @@ export class AppComponent {
     this.d.push(new Dream(id,title,false))
     this.save();
     this.clear();
+    this.changeMode('list');
   }
   clear(){
     this.form.reset();
   }
 
+  
   alterarTexto(){
     this.title="Texto alterado"
   }
@@ -77,4 +82,6 @@ export class AppComponent {
   load(){
     this.d = JSON.parse(localStorage.getItem('d') || '{}');
   }
+
+
 }

@@ -5,6 +5,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 0 2%;
+}
+.center{
+
+  margin: 100px auto;
 }
 .alert{
   color: #9c1010;

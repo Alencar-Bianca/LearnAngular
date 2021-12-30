@@ -4,7 +4,7 @@
   <button class="btn" (click)="alterarTexto()">Alterar</button>
 
   <p class="alert" *ngIf="d.length == 0"><small>Sem tarefa no momento</small></p>
-  <ul class="ul animate__animated  animate__flipInX">
+  <ul class="ul animate__animated  animate__flipInX"  *ngIf="mode == 'list'">
     <li *ngFor="let dream of dre">{{dream}}</li><br><br>
 
     <li *ngFor="let dr of d">{{dr.id}} {{dr.nome}}
@@ -14,13 +14,25 @@
     </li>
   </ul>
   <br><br><br><br><br>
-  <form [formGroup]="form">
-    <fieldset>
-      <label>Tarefa: </label>
-      <input type="text" placeholder="Titulo da Tarefa" maxlength="60" formControlName="title">
-      <button class="btn b1" [disabled]="form.invalid" (click)="add()">Salvar</button>
-      <small class="alert a1" *ngIf="form.get('title')?.invalid && !form.get('title')?.pristine" >Este campo deve conter entre 3 e 60 caracteres</small>
-    </fieldset>
-  </form>
 
+
+  <div id="modal" *ngIf="mode=='add'" >
+    <form [formGroup]="form">
+      <fieldset>
+        <label>Tarefa: </label>
+        <input type="text" placeholder="Titulo da Tarefa" maxlength="60" formControlName="title">
+        <button class="btn b1" [disabled]="form.invalid" (click)="add()">Salvar</button>
+        <small class="alert a1" *ngIf="form.get('title')?.invalid && !form.get('title')?.pristine" >Este campo deve conter entre 3 e 60 caracteres</small>
+      </fieldset>
+    </form>
+  </div>
+
+  <div class="center">
+    <button class="btn animated fadeInUp button" (click)="changeMode('add')" *ngIf="mode=='list'">
+      NOVA TAREFA
+    </button>
+    <button class="btn animated fadeInUp button" (click)="changeMode('list')" *ngIf="mode=='add'">
+      CANCELAR
+    </button>
+  </div>
 </section>
