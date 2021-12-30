@@ -2,8 +2,9 @@
   <h1 class="title animate__animated animate__bounce">{{title}}</h1>
 
   <button class="btn" (click)="alterarTexto()">Alterar</button>
+
+  <p class="alert" *ngIf="d.length == 0"><small>Sem tarefa no momento</small></p>
   <ul class="ul animate__animated  animate__flipInX">
-    <p *ngIf="d.length == 0"><small>Sem tarefa</small></p>
     <li *ngFor="let dream of dre">{{dream}}</li><br><br>
 
     <li *ngFor="let dr of d">{{dr.id}} {{dr.nome}}
@@ -17,8 +18,8 @@
     <fieldset>
       <label>Tarefa: </label>
       <input type="text" placeholder="Titulo da Tarefa" maxlength="60" formControlName="title">
-      <small *ngIf="form.get('title')?.invalid && !form.get('title')?.pristine" >Este campo deve conter entre 3 e 60 caracteres</small>
-      <button class="btn" [disabled]="form.invalid" (click)="add()">Salvar</button>
+      <button class="btn b1" [disabled]="form.invalid" (click)="add()">Salvar</button>
+      <small class="alert a1" *ngIf="form.get('title')?.invalid && !form.get('title')?.pristine" >Este campo deve conter entre 3 e 60 caracteres</small>
     </fieldset>
   </form>
 
