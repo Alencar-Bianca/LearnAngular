@@ -3,10 +3,10 @@
 
   <button class="btn" (click)="alterarTexto()">Alterar</button>
 
-  <p class="alert" *ngIf="d.length == 0"><small>Sem tarefa no momento</small></p>
+
   <ul class="ul animate__animated  animate__flipInX"  *ngIf="mode == 'list'">
     <li *ngFor="let dream of dre">{{dream}}</li><br><br>
-
+    <p class="alert" *ngIf="d.length == 0"><small>Sem tarefa no momento</small></p>
     <li *ngFor="let dr of d">{{dr.id}} {{dr.nome}}
     <button class="btn btnTarefa"   *ngIf="dr.done" (click)="markAsUndone(dr)">Refazer</button>
     <button class="btn btnTarefa" *ngIf="!dr.done" (click)="markAsdone(dr)">Concluir</button>
