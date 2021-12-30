@@ -16,7 +16,7 @@
   <br><br><br><br><br>
 
 
-  <div id="modal" *ngIf="mode=='add'" >
+  <div id="modal animate__animated  animate__flipInX" *ngIf="mode=='add'" >
     <form [formGroup]="form">
       <fieldset>
         <label>Tarefa: </label>
@@ -28,10 +28,10 @@
   </div>
 
   <div class="center">
-    <button class="btn animated fadeInUp button" (click)="changeMode('add')" *ngIf="mode=='list'">
+    <button class="btn animate__animated  animate__flipInX" (click)="changeMode('add')" *ngIf="mode=='list'">
       NOVA TAREFA
     </button>
-    <button class="btn animated fadeInUp button" (click)="changeMode('list')" *ngIf="mode=='add'">
+    <button class="btn animate__animated  animate__flipInX" (click)="changeMode('list')" *ngIf="mode=='add'">
       CANCELAR
     </button>
   </div>
