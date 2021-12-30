@@ -1,5 +1,5 @@
 # Aprendendo Angular
-Este repositoria é apenas para estudo. <br>
+Este Repositório é apenas para estudo. <br>
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
 
 ## Development server
